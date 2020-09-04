@@ -6,7 +6,24 @@ def finder(files, queries):
     """
     YOUR CODE HERE
     """
-    # Your code here
+    result = []
+    cache = {}
+
+    for f in files:
+        path = f.split('/')[-1]
+        # print(path)
+        if path not in cache:
+            cache[path] = 0
+    # print(cache)
+        for q in queries:
+            if q in cache:
+                cache[q] = 1
+    # print(cache)
+        for k in cache.items():
+            if k[-1] > 0 and k[0] in path:
+                
+                result.append(f)
+    
 
     return result
 
